@@ -18,7 +18,7 @@ function viewCart() {
   let cartInfo = 'In your cart, you have';
   if (cart.length) {
     cart.forEach((el, i, arr) => {
-      cartInfo += ` ${el.itemName} at $${el.itemPrice},`;
+      cartInfo += ` ${el.itemName} at $${el.itemPrice}${arr.indexOf(el) === arr.length-2 ? ', and' : ','}`;
     });
     return cartInfo.replace(/,$/, '.');
   }
@@ -48,3 +48,4 @@ function placeOrder(cardNumber) {
   cart = [];
   return `Your total cost is $${finalCost}, which will be charged to the card ${cardNumber}.`;
 }
+
